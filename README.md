@@ -1,28 +1,17 @@
 # amrutha-ravikumar-portfolio
 
-Personal portfolio for Amrutha Ravikumar. ML Research Analyst, Data Scientist, published researcher.
+Personal portfolio for Amrutha Ravikumar. AI/ML Engineer, Data Scientist, Applied Researcher.
 
-Built with Next.js 14, Tailwind CSS, and deployed as a static site.
+Built with Next.js 14 and Tailwind CSS.
 
 ## Local Setup
 
-```bash
 git clone https://github.com/Amy-way05/amrutha-ravikumar-portfolio.git
 cd amrutha-ravikumar-portfolio
 npm install
 npm run dev
-```
 
-Open [http://localhost:3000](http://localhost:3000).
-
-## Deploy to GitHub Pages
-
-1. Push to a GitHub repository.
-2. In the repo settings, enable GitHub Pages and set the source to GitHub Actions.
-3. Add the Next.js static export GitHub Action, or run `npm run build` and deploy the `out/` folder.
-
-## Structure
-
+Open http://localhost:3000
 ```
 app/
   layout.js       Root layout with metadata
