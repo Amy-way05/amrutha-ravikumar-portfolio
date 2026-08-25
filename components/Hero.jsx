@@ -1,39 +1,75 @@
 'use client';
-import { useEffect, useRef } from 'react';
 
 export default function Hero() {
-  const canvasRef = useRef(null);
+  return (
+    <section className="relative min-h-screen flex items-center justify-center hero-gradient overflow-hidden">
+      <div className="relative z-10 max-w-5xl mx-auto px-6">
+        <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
 
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    let animId;
-    let dots = [];
+          {/* Photo */}
+          <div className="fade-up shrink-0">
+            <div className="photo-ring">
+              <div className="photo-inner w-40 h-40 md:w-48 md:h-48">
+                <img
+                  src="/profile.jpg"
+                  alt="Amrutha Ravikumar"
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.parentElement.innerHTML = '<div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-indigo-900/50 to-violet-900/50 text-4xl font-display font-bold text-indigo-300">AR</div>';
+                  }}
+                />
+              </div>
+            </div>
+          </div>
 
-    const resize = () => {
-      canvas.width = canvas.offsetWidth * 2;
-      canvas.height = canvas.offsetHeight * 2;
-      ctx.scale(2, 2);
-      initDots();
-    };
+          {/* Content */}
+          <div className="text-center md:text-left">
+            <div className="fade-up">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-indigo-500/20 bg-indigo-500/5 text-xs font-mono text-indigo-300 mb-6">
+                <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 pulse-dot" />
+                Open to opportunities, Jan 2027
+              </div>
+            </div>
 
-    const initDots = () => {
-      dots = [];
-      const cols = Math.floor(canvas.offsetWidth / 50);
-      const rows = Math.floor(canvas.offsetHeight / 50);
-      for (let i = 0; i < cols; i++) {
-        for (let j = 0; j < rows; j++) {
-          dots.push({
-            x: 25 + i * 50,
-            y: 25 + j * 50,
-            baseR: 1.5,
-            r: 1.5,
-            phase: Math.random() * Math.PI * 2,
-          });
-        }
-      }
-    };
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight fade-up fade-up-delay-1">
+              Amrutha Ravikumar
+            </h1>
+
+            <p className="mt-3 text-lg sm:text-xl font-display font-medium gradient-text fade-up fade-up-delay-2">
+              AI/ML Engineer &middot; Data Scientist &middot; Applied Researcher
+            </p>
+
+            <p className="mt-5 text-base text-slate-400 max-w-xl leading-relaxed fade-up fade-up-delay-3">
+              Published first-author ML researcher with a business foundation.
+              I build end-to-end pipelines that turn messy data into decisions people trust.
+            </p>
+
+            <div className="mt-8 flex flex-col sm:flex-row items-center gap-4 fade-up fade-up-delay-4">
+              <a href="#projects" className="cta-primary px-6 py-3 rounded-lg text-white font-semibold text-sm">
+                See my work
+              </a>
+              <a href="#contact" className="cta-secondary px-6 py-3 rounded-lg text-indigo-300 text-sm font-medium">
+                Get in touch
+              </a>
+            </div>
+
+            <div className="mt-10 flex items-center justify-center md:justify-start gap-6 fade-up fade-up-delay-5">
+              <a href="https://github.com/Amy-way05" target="_blank" rel="noopener"
+                className="text-slate-500 hover:text-indigo-400 transition-colors text-sm font-mono">GitHub</a>
+              <span className="w-1 h-1 rounded-full bg-slate-700" />
+              <a href="https://www.linkedin.com/in/amrutha218" target="_blank" rel="noopener"
+                className="text-slate-500 hover:text-indigo-400 transition-colors text-sm font-mono">LinkedIn</a>
+              <span className="w-1 h-1 rounded-full bg-slate-700" />
+              <a href="https://scholar.google.com/citations?user=RIVcDU8AAAAJ" target="_blank" rel="noopener"
+                className="text-slate-500 hover:text-indigo-400 transition-colors text-sm font-mono">Scholar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
     const draw = (t) => {
       ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
