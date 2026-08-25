@@ -12,24 +12,3 @@ npm install
 npm run dev
 
 Open http://localhost:3000
-```
-app/
-  layout.js       Root layout with metadata
-  page.js         Main page
-  globals.css     Global styles and animations
-components/
-  Navbar.jsx      Fixed nav with mobile menu
-  Hero.jsx        Animated hero with data-point canvas
-  About.jsx       Bio and key stats
-  Experience.jsx  Work history timeline
-  Projects.jsx    Featured project cards
-  Skills.jsx      Grouped skill tags
-  Publication.jsx Published preprint highlight
-  Contact.jsx     CTA and links
-```
-
-## Notes
-
-- Drop your resume PDF into `public/Amrutha_Ravikumar_Resume.pdf` for the resume download link.
-- Static export is configured in `next.config.mjs` for GitHub Pages compatibility.
-- No environment variables required.
