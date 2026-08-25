@@ -23,17 +23,34 @@ const groups = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 px-6">
+    <section id="skills" className="py-24 px-6 section-glow-right">
       <div className="max-w-4xl mx-auto">
-        <h2 className="font-display text-sm font-semibold text-accent tracking-wider uppercase mb-12">
-          Skills
-        </h2>
+        <div className="flex items-center gap-3 mb-12">
+          <div className="accent-line w-8" />
+          <h2 className="font-display text-sm font-semibold text-indigo-400 tracking-wider uppercase">
+            Skills
+          </h2>
+        </div>
 
-        <div className="space-y-8">
+        <div className="grid sm:grid-cols-2 gap-8">
           {groups.map((group, i) => (
-            <div key={i}>
-              <h3 className="font-mono text-xs text-text-muted mb-3">{group.label}</h3>
+            <div key={i} className={i === groups.length - 1 ? 'sm:col-span-2' : ''}>
+              <h3 className="font-mono text-xs text-slate-500 mb-3 uppercase tracking-wider">{group.label}</h3>
               <div className="flex flex-wrap gap-2">
+                {group.items.map((item, j) => (
+                  <span key={j}
+                    className="skill-tag text-sm px-3 py-1.5 rounded-lg text-slate-400 cursor-default">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
                 {group.items.map((item, j) => (
                   <span key={j}
                     className="skill-tag text-sm px-3 py-1.5 rounded-lg bg-surface border border-border text-text-secondary cursor-default">
