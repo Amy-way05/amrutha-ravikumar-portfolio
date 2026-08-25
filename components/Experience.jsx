@@ -40,6 +40,56 @@ const experiences = [
 
 export default function Experience() {
   return (
+    <section id="experience" className="py-24 px-6 section-glow-right">
+      <div className="max-w-4xl mx-auto">
+        <div className="flex items-center gap-3 mb-12">
+          <div className="accent-line w-8" />
+          <h2 className="font-display text-sm font-semibold text-indigo-400 tracking-wider uppercase">
+            Experience
+          </h2>
+        </div>
+
+        <div className="space-y-10">
+          {experiences.map((exp, i) => (
+            <div key={i} className="glass-card rounded-xl p-6 sm:p-8">
+              <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-4">
+                <div>
+                  <h3 className="font-display text-lg font-semibold text-white">{exp.title}</h3>
+                  <p className="text-sm text-indigo-300/70">{exp.org}</p>
+                  {exp.sub && <p className="text-xs text-slate-500 mt-0.5">{exp.sub}</p>}
+                </div>
+                <span className="text-xs font-mono text-slate-500 whitespace-nowrap">{exp.period}</span>
+              </div>
+
+              <ul className="space-y-2.5 mb-5">
+                {exp.points.map((p, j) => (
+                  <li key={j} className="text-sm text-slate-400 leading-relaxed flex gap-3">
+                    <span className="text-indigo-500 mt-1.5 shrink-0 text-xs">&#9670;</span>
+                    <span>{p}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="flex flex-wrap gap-2">
+                {exp.tags.map((tag, k) => (
+                  <span key={k} className="skill-tag text-xs px-2.5 py-1 rounded-md text-slate-400">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+    tags: ['Zapier', 'Slack', 'Google Sheets', 'SaaS'],
+  },
+];
+
+export default function Experience() {
+  return (
     <section id="experience" className="py-24 px-6">
       <div className="max-w-4xl mx-auto">
         <h2 className="font-display text-sm font-semibold text-accent tracking-wider uppercase mb-12">
