@@ -1,8 +1,8 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'Amrutha Ravikumar | ML Research Analyst & Data Scientist',
-  description: 'Portfolio of Amrutha Ravikumar. ML research, data pipelines, and user-centric analytics.',
+  title: 'Amrutha Ravikumar | AI/ML Engineer & Data Scientist',
+description: 'Portfolio of Amrutha Ravikumar. AI/ML engineering, applied research, and user-centric data solutions.',
   icons: { icon: '/favicon.ico' },
 };
 
