@@ -46,9 +46,35 @@ section{padding:90px 0 40px}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .reveal-d1{transition-delay:0.08s}.reveal-d2{transition-delay:0.16s}.reveal-d3{transition-delay:0.24s}
 
-.eyebrow{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;display:block}
-.section-title{font-family:var(--serif);font-size:34px;font-weight:400;letter-spacing:-0.01em;line-height:1.2;margin-bottom:36px;color:var(--text)}
+.eyebrow{display:none}
+.section-title{
+  font-family:var(--serif);font-size:34px;font-weight:400;
+  letter-spacing:-0.01em;line-height:1.2;margin-bottom:36px;color:var(--text);
+  padding-bottom:12px;
+  border-bottom:2px solid var(--accent);
+  display:inline-block;
+  position:relative;
+  padding-left:20px;
+}
+.section-title::before{
+  content:'';position:absolute;left:0;top:14px;
+  width:8px;height:8px;border-radius:50%;
+  background:var(--accent);
+}
 @media(max-width:600px){.section-title{font-size:27px}}
+
+/* ---- Subtle graph-paper grid (the personality layer) ---- */
+body::before{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(0,0,0,0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.018) 1px, transparent 1px);
+  background-size:40px 40px;
+}
+body>*{position:relative;z-index:1}
+
+/* ---- Section divider ---- */
+section+section{border-top:1px solid var(--border)}
 
 /* ================================================================
    NAV
@@ -164,7 +190,7 @@ nav.scrolled{box-shadow:var(--shadow-sm)}
   padding:28px;box-shadow:var(--shadow-sm);
   transition:box-shadow 0.3s,transform 0.3s;
 }
-.project:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.project:hover{box-shadow:0 8px 24px rgba(180,83,9,0.08),0 2px 6px rgba(0,0,0,0.04);transform:translateY(-3px)}
 .project-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;margin-bottom:12px}
 .project-name{font-family:var(--serif);font-size:21px;font-weight:400;flex:1}
 .project-links{display:flex;gap:8px;flex-shrink:0}
@@ -189,7 +215,7 @@ nav.scrolled{box-shadow:var(--shadow-sm)}
   transition:box-shadow 0.3s,transform 0.3s;
   display:flex;flex-direction:column;text-decoration:none;color:inherit;
 }
-.article-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px);opacity:1}
+.article-card:hover{box-shadow:0 8px 24px rgba(180,83,9,0.08),0 2px 6px rgba(0,0,0,0.04);transform:translateY(-3px);opacity:1}
 .article-cover{width:100%;height:170px;object-fit:cover;border-bottom:1px solid var(--border)}
 .article-body{padding:20px;flex:1;display:flex;flex-direction:column}
 .article-platform{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
@@ -298,8 +324,7 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-off
 
 <section id="about">
   <div class="container">
-    <span class="eyebrow reveal">About</span>
-    <h2 class="section-title reveal">Background</h2>
+    <h2 class="section-title reveal">About</h2>
     <div class="about-text reveal">
       <p>I came into analytics through business. That background shaped how I work: I start from the problem someone needs to solve, figure out whether the data can actually answer it, and make sure the person on the other end can use what I hand them.</p>
       <p>MS in Applied Machine Intelligence at Northeastern University (4.0 GPA). Over the past year I've led first-author ML research with a six-person cross-institutional team, built evaluation pipelines for nonprofits across Maine, and designed databases reconciling messy federal data across 72,000+ census tracts.</p>
@@ -316,8 +341,7 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-off
 
 <section id="experience">
   <div class="container">
-    <span class="eyebrow reveal">Experience</span>
-    <h2 class="section-title reveal">Where I've worked</h2>
+    <h2 class="section-title reveal">Experience</h2>
     <div class="exp-card reveal">
       <div class="exp-header"><h3 class="exp-title">ML Research Analyst</h3><div class="exp-meta">Jan 2026 &middot; Present</div></div>
       <span class="exp-org">Ahmedabad University &middot; NCAA data partnership with Sacred Heart University, CT</span>
@@ -345,8 +369,7 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-off
 
 <section id="projects">
   <div class="container">
-    <span class="eyebrow reveal">Projects</span>
-    <h2 class="section-title reveal">Selected Work</h2>
+    <h2 class="section-title reveal">Projects</h2>
     <div class="projects-grid">
       <div class="project reveal">
         <div class="project-header"><h3 class="project-name">Food Intervention Priority Index (FIPI)</h3><div class="project-links"><a href="https://github.com/Amy-way05/food-intervention-priority-index" target="_blank" class="project-link">GitHub</a><a href="https://amy-way05.github.io/food-intervention-priority-index/" target="_blank" class="project-link">Live</a><a href="https://medium.com/@amrutha.sultan/scoring-72-531-census-tracts-for-food-vulnerability-81dfb5d5dbbd" target="_blank" class="project-link">Writeup</a></div></div>
@@ -385,8 +408,7 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-off
 
 <section id="writing">
   <div class="container">
-    <span class="eyebrow reveal">Writing</span>
-    <h2 class="section-title reveal">Technical Writing</h2>
+    <h2 class="section-title reveal">Writing</h2>
     <div class="writing-grid">
       <a href="https://medium.com/@amrutha.sultan/scoring-72-531-census-tracts-for-food-vulnerability-81dfb5d5dbbd" target="_blank" class="article-card reveal">
         <img src="https://miro.medium.com/v2/resize:fill:1200:632/g:fp:0.5:0.68/1*O5MN3ytA6txRJjz4UQjLhw.jpeg" alt="FIPI article cover" class="article-cover" loading="lazy" onerror="this.style.display='none'">
@@ -412,7 +434,6 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-off
 
 <section id="preprint">
   <div class="container">
-    <span class="eyebrow reveal">Preprint</span>
     <h2 class="section-title reveal">Research</h2>
     <div class="preprint-card reveal">
       <span class="preprint-badge">First Author &middot; Preprint &middot; SportRxiv &middot; 2026</span>
@@ -426,7 +447,6 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-off
 
 <section id="certifications">
   <div class="container">
-    <span class="eyebrow reveal">Credentials</span>
     <h2 class="section-title reveal">Certifications</h2>
     <div class="certs-grid">
       <div class="cert reveal">
@@ -453,8 +473,7 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-off
 
 <section id="contact" class="contact-section">
   <div class="container">
-    <span class="eyebrow reveal">Contact</span>
-    <h2 class="section-title reveal">Let's talk.</h2>
+    <h2 class="section-title reveal">Contact</h2>
     <p class="contact-text reveal">I'm looking for full-time roles where data drives real decisions. If you're building something where the model needs to work and the person using it needs to understand why, I'd like to hear about it.</p>
     <a href="mailto:ravikumar.amr@northeastern.edu" class="contact-email reveal">ravikumar.amr@northeastern.edu</a>
     <div class="contact-socials reveal">
